@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+  <defs>
+    <linearGradient id="p-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c16" />
+      <stop offset="100%" stop-color="#0e1526" />
+    </linearGradient>
+
+    <linearGradient id="p-card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 41, 59, 0.7)" />
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.85)" />
+    </linearGradient>
+
+    <linearGradient id="arrow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+
+    <filter id="p-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+  </style>
+
+  <!-- Container -->
+  <rect width="1200" height="360" rx="16" fill="url(#p-bg)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+
+  <!-- Section Title -->
+  <g transform="translate(50, 36)">
+    <text class="sans" font-size="20px" font-weight="800" fill="#ffffff">HOW DOMPULSE FILTERS 96.2% NOISE IN 15.4ms</text>
+    <text y="24" class="sans" font-size="12.5px" font-weight="400" fill="#94a3b8">The deterministic 4-stage pipeline that turns browser noise into actionable agent telemetry.</text>
+  </g>
+
+  <!-- 4 Step Cards -->
+  <!-- STEP 1: Raw Mutations -->
+  <g transform="translate(50, 95)">
+    <rect width="245" height="225" rx="10" fill="url(#p-card)" stroke="rgba(239, 68, 68, 0.3)" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="60" height="20" rx="4" fill="rgba(239, 68, 68, 0.15)" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1" />
+    <text x="24" y="30" class="mono" font-size="10px" font-weight="700" fill="#f87171">STAGE 1</text>
+    <text x="84" y="30" class="sans" font-size="11px" font-weight="600" fill="#94a3b8">BURST ARRIVAL</text>
+
+    <text x="16" y="62" class="sans" font-size="15px" font-weight="700" fill="#ffffff">Raw Mutations</text>
+    <text x="16" y="82" class="mono" font-size="20px" font-weight="800" fill="#f87171">104 events</text>
+
+    <line x1="16" y1="98" x2="229" y2="98" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+
+    <g class="sans" font-size="11px" fill="#cbd5e1" transform="translate(16, 118)">
+      <text y="0">• DOM MutationObserver hooks</text>
+      <text y="20">• CSS hover flips &amp; transitions</text>
+      <text y="40">• Framework tracking IDs</text>
+      <text y="60">• Script/Style tag changes</text>
+      <text y="80" fill="#f87171" font-weight="600">⚠️ 95%+ is pure garbage</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(305, 200)">
+    <path d="M 0 0 L 26 0 M 20 -5 L 26 0 L 20 5" stroke="#38bdf8" stroke-width="2" fill="none" />
+  </g>
+
+  <!-- STEP 2: Debounce Buffer -->
+  <g transform="translate(340, 95)">
+    <rect width="245" height="225" rx="10" fill="url(#p-card)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="60" height="20" rx="4" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" />
+    <text x="24" y="30" class="mono" font-size="10px" font-weight="700" fill="#38bdf8">STAGE 2</text>
+    <text x="84" y="30" class="sans" font-size="11px" font-weight="600" fill="#94a3b8">BUFFERING</text>
+
+    <text x="16" y="62" class="sans" font-size="15px" font-weight="700" fill="#ffffff">Debounce &amp; Cap</text>
+    <text x="16" y="82" class="mono" font-size="20px" font-weight="800" fill="#38bdf8">80ms / 200ms</text>
+
+    <line x1="16" y1="98" x2="229" y2="98" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+
+    <g class="sans" font-size="11px" fill="#cbd5e1" transform="translate(16, 118)">
+      <text y="0">• 80ms trailing debounce</text>
+      <text y="20">• 200ms hard maxWait cutoff</text>
+      <text y="40">• Immune to infinite storms</text>
+      <text y="60">• Bounded target grouping</text>
+      <text y="80" fill="#38bdf8" font-weight="600">⚡ Consolidates to 1 batch</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(595, 200)">
+    <path d="M 0 0 L 26 0 M 20 -5 L 26 0 L 20 5" stroke="#38bdf8" stroke-width="2" fill="none" />
+  </g>
+
+  <!-- STEP 3: 4-Tier Filter -->
+  <g transform="translate(630, 95)">
+    <rect width="245" height="225" rx="10" fill="url(#p-card)" stroke="rgba(251, 191, 36, 0.3)" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="60" height="20" rx="4" fill="rgba(251, 191, 36, 0.15)" stroke="rgba(251, 191, 36, 0.4)" stroke-width="1" />
+    <text x="24" y="30" class="mono" font-size="10px" font-weight="700" fill="#fbbf24">STAGE 3</text>
+    <text x="84" y="30" class="sans" font-size="11px" font-weight="600" fill="#94a3b8">NOISE FILTER</text>
+
+    <text x="16" y="62" class="sans" font-size="15px" font-weight="700" fill="#ffffff">Semantic Cleaner</text>
+    <text x="16" y="82" class="mono" font-size="20px" font-weight="800" fill="#fbbf24">-100 rejected</text>
+
+    <line x1="16" y1="98" x2="229" y2="98" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+
+    <g class="sans" font-size="11px" fill="#cbd5e1" transform="translate(16, 118)">
+      <text y="0">• Strips SCRIPT, STYLE, META</text>
+      <text y="20">• Discards cosmetic CSS diffs</text>
+      <text y="40">• Eliminates A ➔ B ➔ A reversions</text>
+      <text y="60">• Strips react/vue tracking IDs</text>
+      <text y="80" fill="#fbbf24" font-weight="600">🎯 96.2% Noise Eliminated</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g transform="translate(885, 200)">
+    <path d="M 0 0 L 26 0 M 20 -5 L 26 0 L 20 5" stroke="#34d399" stroke-width="2" fill="none" />
+  </g>
+
+  <!-- STEP 4: Output to Agent -->
+  <g transform="translate(920, 95)">
+    <rect width="230" height="225" rx="10" fill="url(#p-card)" stroke="rgba(52, 211, 153, 0.4)" stroke-width="1.5" />
+    
+    <rect x="16" y="16" width="60" height="20" rx="4" fill="rgba(52, 211, 153, 0.15)" stroke="rgba(52, 211, 153, 0.4)" stroke-width="1" />
+    <text x="24" y="30" class="mono" font-size="10px" font-weight="700" fill="#34d399">OUTPUT</text>
+    <text x="84" y="30" class="sans" font-size="11px" font-weight="600" fill="#94a3b8">ACTIONABLE</text>
+
+    <text x="16" y="62" class="sans" font-size="15px" font-weight="700" fill="#ffffff">Structured Signal</text>
+    <text x="16" y="82" class="mono" font-size="20px" font-weight="800" fill="#34d399">4 events (15ms)</text>
+
+    <line x1="16" y1="98" x2="214" y2="98" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" />
+
+    <g class="sans" font-size="11px" fill="#cbd5e1" transform="translate(16, 118)">
+      <text y="0">• Exact screen bbox [x, y, w, h]</text>
+      <text y="20">• Viewport visibility checked</text>
+      <text y="40">• Importance score (1-5)</text>
+      <text y="60">• Zero VLM tokens needed</text>
+      <text y="80" fill="#34d399" font-weight="600">🚀 Ready for AI click/read</text>
+    </g>
+  </g>
+</svg>

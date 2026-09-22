@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" width="1100" height="480">
+  <defs>
+    <linearGradient id="hud-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 41, 59, 0.8)" />
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.9)" />
+    </linearGradient>
+    <filter id="hud-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  </style>
+
+  <!-- Container -->
+  <rect width="1100" height="480" rx="16" fill="url(#hud-bg)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" />
+
+  <!-- Left: Mockup Webpage with Screen Bounding Box Target -->
+  <g transform="translate(40, 40)">
+    <!-- Browser Window Frame -->
+    <rect width="520" height="400" rx="10" fill="#0f172a" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+    <!-- Browser Header -->
+    <rect width="520" height="34" rx="10" fill="#1e293b" />
+    <circle cx="18" cy="17" r="4.5" fill="#f87171" />
+    <circle cx="34" cy="17" r="4.5" fill="#fbbf24" />
+    <circle cx="50" cy="17" r="4.5" fill="#34d399" />
+    <rect x="70" y="8" width="360" height="18" rx="4" fill="#0b0f19" />
+    <text x="82" y="21" class="mono" font-size="10px" fill="#64748b">https://store.example.com/checkout</text>
+
+    <!-- Webpage Body Simulation -->
+    <rect x="30" y="60" width="160" height="14" rx="3" fill="#334155" />
+    <rect x="30" y="85" width="280" height="8" rx="2" fill="#1e293b" />
+    <rect x="30" y="100" width="220" height="8" rx="2" fill="#1e293b" />
+
+    <!-- Interactive Button with Bounding Box Overlay -->
+    <g transform="translate(30, 130)">
+      <!-- Pulsing HUD Bounding Box Highlight -->
+      <rect x="-6" y="-6" width="162" height="46" rx="6" fill="rgba(56, 189, 248, 0.12)" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4,3" />
+      <!-- Coordinates Pill Tag -->
+      <rect x="-6" y="-24" width="128" height="16" rx="3" fill="#0284c7" />
+      <text x="-1" y="-12" class="mono" font-size="9.5px" font-weight="700" fill="#ffffff">bbox: [720, 540, 150×34]</text>
+
+      <!-- Button Element -->
+      <rect width="150" height="34" rx="6" fill="#0284c7" />
+      <text x="36" y="22" class="sans" font-size="13px" font-weight="700" fill="#ffffff">Processing...</text>
+    </g>
+
+    <!-- Cart Badge Target -->
+    <g transform="translate(380, 55)">
+      <rect x="-4" y="-4" width="108" height="32" rx="4" fill="rgba(52, 211, 153, 0.12)" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,3" />
+      <rect x="-4" y="-20" width="94" height="14" rx="3" fill="#059669" />
+      <text x="0" y="-10" class="mono" font-size="9px" font-weight="700" fill="#ffffff">bbox: [940, 60, 100×24]</text>
+      
+      <rect width="100" height="24" rx="4" fill="#1e293b" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+      <text x="14" y="16" class="sans" font-size="11px" font-weight="600" fill="#38bdf8">Cart: 1 item</text>
+    </g>
+
+    <!-- Injected Toast Notification Target -->
+    <g transform="translate(30, 280)">
+      <rect x="-4" y="-4" width="328" height="48" rx="6" fill="rgba(251, 191, 36, 0.15)" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3" />
+      <rect x="-4" y="-20" width="112" height="14" rx="3" fill="#d97706" />
+      <text x="0" y="-10" class="mono" font-size="9px" font-weight="700" fill="#ffffff">role="alert" toast</text>
+
+      <rect width="320" height="40" rx="6" fill="#1e293b" stroke="rgba(255, 255, 255, 0.1)" />
+      <rect x="0" y="0" width="4" height="40" rx="2" fill="#34d399" />
+      <text x="16" y="24" class="sans" font-size="12px" font-weight="600" fill="#f8fafc">✓ Neural Engine Core added to cart</text>
+    </g>
+  </g>
+
+  <!-- Right: DOMPulse Real-Time Telemetry Popup HUD -->
+  <g transform="translate(600, 40)">
+    <rect width="460" height="400" rx="12" fill="url(#card-grad)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" />
+
+    <!-- Popup Header -->
+    <g transform="translate(20, 20)">
+      <circle cx="10" cy="10" r="4" fill="#38bdf8" filter="url(#hud-glow)" />
+      <circle cx="10" cy="10" r="8" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
+      <text x="26" y="15" class="sans" font-size="16px" font-weight="800" fill="#ffffff">DOMPulse</text>
+      <rect x="110" y="4" width="34" height="16" rx="4" fill="rgba(56, 189, 248, 0.2)" />
+      <text x="116" y="16" class="sans" font-size="10px" font-weight="700" fill="#38bdf8">v1.1</text>
+
+      <rect x="330" y="2" width="70" height="22" rx="6" fill="rgba(52, 211, 153, 0.15)" stroke="rgba(52, 211, 153, 0.3)" stroke-width="1" />
+      <circle cx="342" cy="13" r="3.5" fill="#34d399" />
+      <text x="352" y="16" class="sans" font-size="11px" font-weight="600" fill="#34d399">ACTIVE</text>
+    </g>
+
+    <!-- Metrics 4-Grid Bar -->
+    <g transform="translate(20, 58)">
+      <rect width="420" height="46" rx="8" fill="rgba(0, 0, 0, 0.5)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <!-- Metric 1: Raw -->
+      <text x="16" y="18" class="sans" font-size="9.5px" font-weight="600" fill="#94a3b8">RAW</text>
+      <text x="16" y="36" class="mono" font-size="14px" font-weight="700" fill="#ffffff">104</text>
+
+      <!-- Metric 2: Filtered -->
+      <text x="100" y="18" class="sans" font-size="9.5px" font-weight="600" fill="#94a3b8">FILTERED</text>
+      <text x="100" y="36" class="mono" font-size="14px" font-weight="700" fill="#64748b">100</text>
+
+      <!-- Metric 3: Deduped -->
+      <text x="200" y="18" class="sans" font-size="9.5px" font-weight="600" fill="#94a3b8">DEDUPED</text>
+      <text x="200" y="36" class="mono" font-size="14px" font-weight="700" fill="#c084fc">49</text>
+
+      <!-- Metric 4: Meaningful -->
+      <text x="310" y="18" class="sans" font-size="9.5px" font-weight="600" fill="#38bdf8">MEANINGFUL</text>
+      <text x="310" y="36" class="mono" font-size="14px" font-weight="700" fill="#38bdf8">4</text>
+    </g>
+
+    <!-- Noise Banner -->
+    <g transform="translate(20, 114)">
+      <rect width="420" height="26" rx="6" fill="rgba(52, 211, 153, 0.08)" stroke="rgba(52, 211, 153, 0.2)" stroke-width="1" />
+      <text x="16" y="17" class="sans" font-size="11px" font-weight="700" fill="#34d399">🔥 NOISE REDUCTION: 96.2%</text>
+      <text x="280" y="17" class="sans" font-size="11px" font-weight="600" fill="#94a3b8">⚡ AVG LATENCY: 15.4ms</text>
+    </g>
+
+    <!-- Event Stream Cards -->
+    <!-- Event 1: TEXT_CHANGED -->
+    <g transform="translate(20, 150)">
+      <rect width="420" height="74" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <circle cx="16" cy="18" r="4" fill="#fbbf24" />
+      <rect x="26" y="9" width="90" height="18" rx="4" fill="rgba(56, 189, 248, 0.2)" />
+      <text x="32" y="22" class="sans" font-size="9.5px" font-weight="700" fill="#38bdf8">TEXT_CHANGED</text>
+      <text x="340" y="21" class="mono" font-size="10px" fill="#64748b">12:44:12.302</text>
+
+      <text x="16" y="42" class="mono" font-size="11px" font-weight="600" fill="#38bdf8">button#add-to-cart</text>
+      
+      <!-- Diff snippet -->
+      <text x="16" y="60" class="mono" font-size="10px" fill="#f87171">- "Add to Cart"</text>
+      <text x="130" y="60" class="mono" font-size="10px" fill="#4ade80">+ "Adding..."</text>
+      <text x="280" y="60" class="mono" font-size="10px" fill="#94a3b8">bbox: [720, 540, 150×34]</text>
+    </g>
+
+    <!-- Event 2: STATE_CHANGED (disabled) -->
+    <g transform="translate(20, 234)">
+      <rect width="420" height="66" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <circle cx="16" cy="18" r="4" fill="#ef4444" />
+      <rect x="26" y="9" width="94" height="18" rx="4" fill="rgba(52, 211, 153, 0.2)" />
+      <text x="32" y="22" class="sans" font-size="9.5px" font-weight="700" fill="#34d399">STATE_CHANGED</text>
+      <text x="340" y="21" class="mono" font-size="10px" fill="#64748b">12:44:12.302</text>
+
+      <text x="16" y="42" class="mono" font-size="11px" font-weight="600" fill="#38bdf8">button#add-to-cart</text>
+      <text x="160" y="42" class="mono" font-size="10.5px" fill="#a7f3d0">attr: disabled (false → true)</text>
+      
+      <text x="16" y="58" class="mono" font-size="10px" fill="#94a3b8">score: 5 (Critical)</text>
+      <text x="280" y="58" class="mono" font-size="10px" fill="#94a3b8">bbox: [720, 540, 150×34]</text>
+    </g>
+
+    <!-- Event 3: NOTIFICATION_APPEARED -->
+    <g transform="translate(20, 310)">
+      <rect width="420" height="66" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+      
+      <circle cx="16" cy="18" r="4" fill="#ef4444" />
+      <rect x="26" y="9" width="138" height="18" rx="4" fill="rgba(251, 191, 36, 0.2)" />
+      <text x="32" y="22" class="sans" font-size="9.5px" font-weight="700" fill="#fde047">NOTIFICATION_APPEARED</text>
+      <text x="340" y="21" class="mono" font-size="10px" fill="#64748b">12:44:12.450</text>
+
+      <text x="16" y="42" class="mono" font-size="11px" font-weight="600" fill="#38bdf8">div.toast-alert[role="alert"]</text>
+      <text x="16" y="58" class="mono" font-size="10px" fill="#4ade80">+ "Neural Engine Core added to cart"</text>
+      <text x="280" y="58" class="mono" font-size="10px" fill="#94a3b8">bbox: [30, 280, 320×40]</text>
+    </g>
+  </g>
+</svg>
