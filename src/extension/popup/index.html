@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOMPulse Dev Inspector</title>
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="pulse-icon">
+          <span class="pulse-core"></span>
+          <span class="pulse-ring"></span>
+        </div>
+        <div class="title-group">
+          <h1>DOMPulse</h1>
+          <span class="version-tag">v1.1</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="toggle-monitor-btn" class="btn btn-outline" title="Pause or Resume Monitoring">
+          <span class="status-dot active" id="status-indicator"></span>
+          <span id="status-text">Active</span>
+        </button>
+        <button id="clear-btn" class="btn btn-icon" title="Clear Event Log">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18m-2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Metrics Bar: Raw, Filtered, Deduplicated, Meaningful -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">Raw</span>
+        <span class="metric-value" id="raw-count">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Filtered</span>
+        <span class="metric-value text-muted" id="filtered-count">0</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Deduped</span>
+        <span class="metric-value text-purple" id="deduped-count">0</span>
+      </div>
+      <div class="metric-card highlight">
+        <span class="metric-label">Meaningful</span>
+        <span class="metric-value text-accent" id="meaningful-count">0</span>
+      </div>
+    </section>
+
+    <!-- Performance & Noise Banner -->
+    <div class="noise-reduction-banner">
+      <div class="banner-item">
+        <span class="banner-title">Noise Reduction:</span>
+        <span class="banner-val text-emerald" id="compression-ratio">0.0%</span>
+      </div>
+      <div class="banner-item">
+        <span class="banner-title">Avg Latency:</span>
+        <span class="banner-val text-accent" id="avg-latency">0.0ms</span>
+      </div>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-search-row">
+        <input type="text" id="search-input" class="search-input" placeholder="Search selector, text, or attr..." />
+      </div>
+      <div class="toolbar-actions-row">
+        <select id="type-filter" class="select-filter">
+          <option value="ALL">All Event Types</option>
+          <option value="TEXT_CHANGED">TEXT_CHANGED</option>
+          <option value="DIALOG_APPEARED">DIALOG_APPEARED</option>
+          <option value="NOTIFICATION_APPEARED">NOTIFICATION_APPEARED</option>
+          <option value="FORM_CHANGED">FORM_CHANGED</option>
+          <option value="STATE_CHANGED">STATE_CHANGED</option>
+          <option value="VISIBILITY_CHANGED">VISIBILITY_CHANGED</option>
+          <option value="ELEMENT_ADDED">ELEMENT_ADDED</option>
+          <option value="ELEMENT_REMOVED">ELEMENT_REMOVED</option>
+          <option value="ATTRIBUTE_CHANGED">ATTRIBUTE_CHANGED</option>
+          <option value="NAVIGATION_DETECTED">NAVIGATION_DETECTED</option>
+        </select>
+        <button id="export-json-btn" class="btn btn-sm btn-subtle" title="Export Events as JSON for AI Agent">
+          Export JSON
+        </button>
+      </div>
+    </div>
+
+    <!-- Event Feed -->
+    <main class="events-container">
+      <div class="events-header">
+        <span class="events-title">EVENTS</span>
+        <span class="events-count" id="stream-count">0 events</span>
+      </div>
+      <div id="events-list" class="events-list">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">⚡</div>
+          <p class="empty-title">Waiting for DOM changes</p>
+          <p class="empty-desc">Interact with the page to observe filtered & deduplicated semantic changes.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./popup.ts"></script>
+</body>
+</html>

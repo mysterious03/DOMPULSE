@@ -1,0 +1,29 @@
+{
+  "name": "dompulse",
+  "version": "1.0.0",
+  "description": "Browser-side perception and change-intelligence layer for AI browser agents",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node build-extension.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "browser-agent",
+    "dom-observation",
+    "mutation-observer",
+    "ai-agent",
+    "chrome-extension"
+  ],
+  "author": "DOMPulse Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.308",
+    "@types/node": "^22.13.9",
+    "jsdom": "^26.0.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^3.0.7"
+  }
+}
