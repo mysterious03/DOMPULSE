@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero-banner.svg" alt="DOMPulse: Perception & Change-Intelligence Layer for AI Browser Agents" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+<img src="./assets/banner.png" alt="DOMPulse: Perception & Change-Intelligence Layer for AI Browser Agents" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
 
 # ⚡ DOMPulse
 ### *The Perception & Change-Intelligence Layer for AI Browser Agents*
