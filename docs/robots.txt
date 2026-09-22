@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mysterious03.github.io/DOMPULSE/sitemap.xml

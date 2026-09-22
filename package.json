@@ -1,8 +1,17 @@
 {
   "name": "dompulse",
-  "version": "1.0.0",
-  "description": "Browser-side perception and change-intelligence layer for AI browser agents",
+  "version": "1.1.0",
+  "description": "Browser-side perception and change-intelligence layer for AI browser agents. Replaces expensive screenshot polling with 15ms structured DOM events.",
   "type": "module",
+  "main": "dist/content.js",
+  "homepage": "https://mysterious03.github.io/DOMPULSE/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysterious03/DOMPULSE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mysterious03/DOMPULSE/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "node build-extension.js",
@@ -10,13 +19,23 @@
     "test:watch": "vitest"
   },
   "keywords": [
+    "dompulse",
+    "ai-browser-agent",
     "browser-agent",
-    "dom-observation",
+    "browser-use",
+    "playwright",
+    "puppeteer",
+    "computer-use",
     "mutation-observer",
-    "ai-agent",
-    "chrome-extension"
+    "vlm-alternative",
+    "chrome-extension",
+    "manifest-v3",
+    "semantic-dom",
+    "dom-diff",
+    "bounding-box",
+    "web-automation"
   ],
-  "author": "DOMPulse Team",
+  "author": "mysterious03",
   "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.308",
